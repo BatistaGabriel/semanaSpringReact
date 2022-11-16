@@ -2,19 +2,19 @@ package com.example.dsmeta.controllers;
 
 import com.example.dsmeta.entities.Sale;
 import com.example.dsmeta.services.SaleService;
+import com.example.dsmeta.services.SmsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(value = "/sales")
 public class SaleController {
     @Autowired
     private SaleService saleService;
+    @Autowired
+    private SmsService smsService;
 
     /**
      * [HTTP GET]
@@ -31,5 +31,15 @@ public class SaleController {
             @RequestParam(value = "maxDate", defaultValue = "") String maxDate,
             Pageable pageable) {
         return saleService.findAllSales(minDate, maxDate, pageable);
+    }
+
+    /**
+     * [HTTP GET]
+     * <p>
+     * API route to notify a sale via SMS
+     */
+    @GetMapping("/{id}/notification")
+    public void notifyViaSms(@PathVariable Long id) {
+        smsService.sendSms(id);
     }
 }
