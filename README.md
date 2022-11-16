@@ -53,3 +53,30 @@ Feito isto precisamos adicionar um plugin no arquivo pom.xml, a forma como farem
 Feitos os ajustes vamos precisar utilizar o Maven para dar o update no projeto, faremos usando seguindo a seguinte sequência de passos:
 
 Botão direito no projeto -> Maven -> Update project (force update)
+
+### Banco de dados
+
+Após feita a criação da entidade de mapeamento do banco de dados e feitas as seguintes configurações no arquivo **application.properties**:
+
+```bash
+spring.datasource.url=jdbc:h2:mem:testdb
+spring.datasource.username=sa
+spring.datasource.password=
+
+spring.h2.console.enabled=true
+spring.h2.console.path=/h2-console
+
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.format_sql=true
+```
+
+Podemos acessar o banco de daddos pelo endereço: **http://localhost:8080/h2-console**
+
+Note que ao acessar a url acima para conectar na instância do H2 os dados precisam estar iguais aos configurados no arquivo **application.properties**, ou seja:
+
+```text
+- JDB URL = jdbc:h2:mem:testdb
+- User Name = sa
+```
+
+Feito isso clique no botão **Test Connection** para confirmar que os paramêtros estão corretos, você deverá receber uma mensagem de sucesso, com isso conecte no banco de dados de fato.
