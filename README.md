@@ -100,3 +100,7 @@ Para realizar o deploy na plataforma, será necessário que as seguintes configu
 Site settings -> Domain Management: (colocar o nome que você quiser)
 Deploys -> Trigger deploy
 ```
+
+## Acessando o site
+
+Com isto chegamos ao final do projeto e o mesmo pode ser acessado na seguinte URL: [dsmeta-gabrielbatista.netlify.app](https://dsmeta-gabrielbatista.netlify.app/)
