@@ -80,3 +80,23 @@ Note que ao acessar a url acima para conectar na instância do H2 os dados preci
 ```
 
 Feito isso clique no botão **Test Connection** para confirmar que os paramêtros estão corretos, você deverá receber uma mensagem de sucesso, com isso conecte no banco de dados de fato.
+
+---
+
+## Deploy no Netlify
+
+Para realizar o deploy na plataforma, será necessário que as seguintes configurações sejam feitas:
+
+```text
+- Base directory: frontend
+- Build command: yarn build
+- Publish directory: frontend/dist
+- Variáveis de ambiente: VITE_BACKEND_URL
+```
+
+### Configurações adicionais
+
+```text
+Site settings -> Domain Management: (colocar o nome que você quiser)
+Deploys -> Trigger deploy
+```
